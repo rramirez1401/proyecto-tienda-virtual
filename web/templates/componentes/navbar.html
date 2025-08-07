@@ -1,0 +1,34 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar shadow-sm sticky-top">
+    <div class="container-fluid"> <!-- Cambiado a container-fluid para mejor control -->
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'web/img/logo_navbar.png' %}" alt="Logo" height="55">
+        </a>
+
+        <!-- Botón hamburguesa a la derecha -->
+        <button 
+            class="navbar-toggler ms-auto" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarContent"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menú colapsable con alineación derecha -->
+        <div class="collapse navbar-collapse text-lg-end" id="navbarContent">
+            <ul class="navbar-nav ms-auto"> <!-- ms-auto empuja los links a la derecha -->
+                <li class="nav-item">
+                    <a class="nav-link active px-lg-3" href="#">INICIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-lg-3" href="#">BIENVENIDO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-lg-3" href="#">ACERCA</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

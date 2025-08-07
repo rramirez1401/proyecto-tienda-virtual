@@ -1,0 +1,22 @@
+{% load static %}
+<header class="container-fluid p-0">
+  <div class="row g-0">
+    <div class="col-12">
+      <!-- Versión Desktop - Solo visible en pantallas grandes -->
+      <div class="desktop-hero-container d-none d-lg-block" style="height: 400px; overflow: hidden;">
+        <img src="{% static 'web/img/hero_desktop.jpg' %}" 
+             alt="Hero Banner Desktop" 
+             class="img-fluid w-100 h-100"
+             style="object-fit: cover; object-position: center center;">
+      </div>
+      
+      <!-- Versión Móvil - Solo visible en pantallas pequeñas -->
+      <div class="d-lg-none" style="height: 500px; overflow: hidden;">
+        <img src="{% static 'web/img/hero_mobile.jpg' %}" 
+             alt="Hero Banner Mobile" 
+             class="img-fluid w-100 h-100"
+             style="object-fit: cover; object-position: center center;">
+      </div>
+    </div>
+  </div>
+</header>

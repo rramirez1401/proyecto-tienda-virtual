@@ -1,0 +1,37 @@
+.custom-footer {
+  /* Gradiente actualizado según tu solicitud */
+  background: linear-gradient(
+    to right,
+    #db91aa 0%,     /* Rosa oscuro */
+    hsl(346, 58%, 78%) 50%,    /* Color exacto de tu hero */
+    #ff75a3 100%    /* Rosa vino */
+  );
+  color: #ffffff;
+  font-family: 'Montserrat-bold', sans-serif;
+  padding: 1.5rem 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+}
+
+.custom-footer p {
+  font-weight: 400;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.footer-copyright {
+  opacity: 0.9;
+}
+
+/* Estilo mejorado para el símbolo ® */
+.custom-footer span:first-child {
+  font-size: 1.1em;
+  position: relative;
+  top: -1px;
+  opacity: 0.7;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}

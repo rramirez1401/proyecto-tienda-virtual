@@ -1,0 +1,53 @@
+.custom-navbar {
+  background: linear-gradient(
+    to right,
+    #db91aa 0%,     /* Rosa oscuro */
+    hsl(347, 100%, 95%) 50%,    /* Color exacto de tu hero */
+    #ff75a3 100%    /* Rosa vino */
+  );
+  padding: 0.7rem 0;
+  font-family: 'Montserrat', sans-serif;
+  border-bottom: 1px solid rgba(255, 232, 237, 0.3); /* Borde sutil que combina */
+}
+
+/* ===== MENÚ MÓVIL (COLORES ACTUALIZADOS, ESTRUCTURA INTACTA) ===== */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: linear-gradient(135deg, #D14D7A 0%, #B33A63 100%) !important;
+    /* Todas las demás propiedades se mantienen IGUAL */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 65%;
+    max-width: 250px;
+    padding: 1.5rem;
+    border-radius: 0 0 0 12px;
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: right;
+    z-index: 1000;
+   }
+  .navbar-nav {
+    display: block;
+  }
+  .nav-item {
+    margin: 1rem 0 !important;
+  }
+  .nav-link {
+    padding: 0.5rem 0 !important;
+    margin: 0 !important;
+    font-size: 1rem;
+  }
+  .nav-link::before {
+    left: auto;
+    right: 0;
+    transform: none;
+  }
+  .nav-link:hover {
+    transform: translateX(-8px);
+  }
+}
+
+/* ===== EFECTO "GLOW" EN ACTIVE ===== */
+.nav-link.active {
+  text-shadow: 0 0 8px rgba(15, 8, 8, 0.3);
+}

@@ -1,0 +1,22 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    {% include "componentes/scripts.html" %}
+  </head>
+
+  <!-- Cambio clave: elimina 'container' y usa 'container-fluid' -->
+  <body class="container-fluid px-0"> <!-- px-0 elimina padding horizontal -->
+    {% include "componentes/navbar.html" %}
+    {% include "componentes/header.html" %}
+
+    <main class="container-fluid px-0"> <!-- Contenedor para el contenido principal -->
+      {% block content %}{% endblock %}
+    </main>
+
+    {% include "componentes/footer.html" %}
+  </body>
+</html>

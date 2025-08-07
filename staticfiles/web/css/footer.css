@@ -1,0 +1,9 @@
+.custom-footer {
+  background: linear-gradient(
+    to right,
+    #0A4D5C 0%,     /* Turquesa oscuro */
+    #89c5d1 50%,
+    #052D36 100% 
+  );
+  border-top: 1px solid rgba(58, 81, 199, 0.3); /* Borde sutil con azul del logo */
+}
