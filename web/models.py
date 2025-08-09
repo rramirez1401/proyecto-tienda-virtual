@@ -2,8 +2,8 @@ from django.db import models
 import uuid
 from django.utils.text import slugify
 
-# Create your models here.
 
+## Modelo tabla Flan
 class Flan(models.Model):
     flan_uuid = models.UUIDField("UUID", default=uuid.uuid4, editable=False)
     name = models.CharField("Nombre", max_length=64)
@@ -13,7 +13,7 @@ class Flan(models.Model):
     slug = models.SlugField("Slug", unique=True, blank=True, editable=False)
     is_private = models.BooleanField("Privado", default=False)
 
-## Generar automaticamente el slug a partir del nombre
+## Genera automaticamente el slug a partir del nombre
     def save(self, *args, **kwargs):
         if not self.slug:
             base_slug = slugify(self.name)
@@ -24,3 +24,11 @@ class Flan(models.Model):
                 count += 1
             self.slug = slug
         super().save(*args, **kwargs)
+
+
+## Modelo tabla ContactForm
+class ContactForm(models.Model):
+    contact_form_uuid = models.UUIDField("UUID Contacto", default=uuid.uuid4, editable=False)
+    customer_email = models.EmailField("Correo", max_length=50, blank=False, null=False, help_text="ejemplo@gmail.com")
+    customer_name = models.CharField("Nombre", max_length=64)
+    message = models.TextField("Descripcion")

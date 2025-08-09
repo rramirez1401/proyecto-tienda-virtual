@@ -1,20 +1,19 @@
 .custom-navbar {
   background: linear-gradient(
     to right,
-    #db91aa 0%,     /* Rosa oscuro */
-    hsl(347, 100%, 95%) 50%,    /* Color exacto de tu hero */
-    #ff75a3 100%    /* Rosa vino */
+    #db91aa 0%,
+    hsl(345, 67%, 83%) 50%,
+    #ff75a3 100%
   );
   padding: 0.7rem 0;
   font-family: 'Montserrat', sans-serif;
-  border-bottom: 1px solid rgba(255, 232, 237, 0.3); /* Borde sutil que combina */
+  border-bottom: 1px solid rgba(255, 232, 237, 0.3);
 }
 
-/* ===== MENÚ MÓVIL (COLORES ACTUALIZADOS, ESTRUCTURA INTACTA) ===== */
+/* ===== VERSIÓN MÓVIL ===== */
 @media (max-width: 991.98px) {
   .navbar-collapse {
     background: linear-gradient(135deg, #D14D7A 0%, #B33A63 100%) !important;
-    /* Todas las demás propiedades se mantienen IGUAL */
     position: absolute;
     top: 100%;
     right: 0;
@@ -23,31 +22,59 @@
     padding: 1.5rem;
     border-radius: 0 0 0 12px;
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.2);
-    text-align: right;
+    text-align: left;
     z-index: 1000;
-   }
-  .navbar-nav {
-    display: block;
   }
-  .nav-item {
-    margin: 1rem 0 !important;
-  }
+
   .nav-link {
-    padding: 0.5rem 0 !important;
-    margin: 0 !important;
-    font-size: 1rem;
-  }
-  .nav-link::before {
-    left: auto;
-    right: 0;
-    transform: none;
-  }
-  .nav-link:hover {
-    transform: translateX(-8px);
+    font-size: 1rem !important; /* Tamaño original para móvil */
   }
 }
 
-/* ===== EFECTO "GLOW" EN ACTIVE ===== */
+/* ===== VERSIÓN DESKTOP (TAMAÑO AUMENTADO) ===== */
+@media (min-width: 992px) {
+  .navbar .nav-link {
+    font-size: 1.3rem !important; /* Aumentado significativamente (30% más grande) */
+  }
+  
+  .logout-btn {
+    font-size: 1.3rem !important; /* Mismo aumento para consistencia */
+  }
+}
+
+/* ESTILOS BASE (compartidos) */
+.navbar .nav-link {
+  color: #f0f0f0;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem; /* Base para móvil */
+}
+
+.navbar .nav-link:hover {
+  color: #ffffff;
+  font-weight: 600;
+  transform: scale(1.05);
+}
+
+.logout-btn {
+  color: #f0f0f0;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem; /* Base para móvil */
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  color: #ffffff;
+  font-weight: 600;
+  transform: scale(1.05);
+}
+
 .nav-link.active {
   text-shadow: 0 0 8px rgba(15, 8, 8, 0.3);
 }

@@ -8,15 +8,19 @@
     {% include "componentes/scripts.html" %}
   </head>
 
-  <!-- Cambio clave: elimina 'container' y usa 'container-fluid' -->
-  <body class="container-fluid px-0"> <!-- px-0 elimina padding horizontal -->
+  <body class="d-flex flex-column min-vh-100 container-fluid px-0"> <!-- Flexbox vertical -->
+    
     {% include "componentes/navbar.html" %}
-    {% include "componentes/header.html" %}
+    
+    {% block header %}
+      {% include "componentes/header.html" %}
+    {% endblock %}
 
-    <main class="container-fluid px-0"> <!-- Contenedor para el contenido principal -->
+    <main class="flex-fill container-fluid px-0"> <!-- Se expande para empujar el footer -->
       {% block content %}{% endblock %}
     </main>
 
     {% include "componentes/footer.html" %}
+    
   </body>
 </html>

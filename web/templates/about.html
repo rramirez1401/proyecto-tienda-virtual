@@ -1,11 +1,131 @@
 {% extends "componentes/base.html" %}
+{% load static %}
 
-<!-- Modificacion del titulo de la pestaña -->
-{% block title %}Acerca de OnlyFlans{% endblock %}
+{% block title %}Acerca | OnlyFlans{% endblock %}
 
-<!-- Añado el contenido del body -->
+{% block header %}{% endblock %}
+
 {% block content %}
-<div style="height: 50px; background-color: rgb(255, 0, 0);">
-    <h1>Acerca</h1>
-</div>
+<main class="container-fluid px-0">
+  <section class="py-5 bg-light">
+    <div class="container py-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          
+          <!-- Tarjeta principal -->
+          <div class="card border-0 shadow-sm overflow-hidden">
+            <!-- Cabecera -->
+            <div class="card-header bg-primary text-white py-4 text-center position-relative">
+              <div class="position-relative">
+                <h1 class="h2 mb-3">OnlyFlans Yumbel</h1>
+                <p class="mb-0">Tradición dulce de La Aguada</p>
+              </div>
+            </div>
+            
+            <!-- Cuerpo -->
+            <div class="card-body p-4 p-md-5">
+              <div class="text-center mb-5">
+                <img src="{% static 'web/img/logo_navbar.png'' %}" alt="OnlyFlans Yumbel" class="img-fluid mb-4" style="max-height: 120px;">
+                <p class="lead text-muted">El auténtico sabor campesino desde 2012</p>
+              </div>
+
+              <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                  <div class="h-100 p-3 bg-white rounded">
+                    <h2 class="h4 text-primary mb-3">
+                      <i class="fas fa-map-marker-alt me-2"></i>Nuestros Orígenes
+                    </h2>
+                    <p>Nacimos en el corazón de La Aguada, Yumbel, donde doña Isabel comenzó a preparar sus famosos flanes para las fiestas locales. Hoy mantenemos esa tradición usando:</p>
+                    <ul class="list-unstyled">
+                      <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Leche de vacas criadas en campos yumbelinos</li>
+                      <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Huevos de gallinas de campo</li>
+                      <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Recetas transmitidas por generaciones</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="h-100 p-3 bg-white rounded">
+                    <h2 class="h4 text-primary mb-3">
+                      <i class="fas fa-heart me-2"></i>Nuestra Filosofía
+                    </h2>
+                    <p>Creemos en la dulzura auténtica:</p>
+                    
+                    <!-- Item 1 - Alineación perfecta -->
+                    <div class="d-flex mb-3">
+                      <div class="me-3 text-primary" style="width: 48px; text-align: center;">
+                        <i class="fas fa-3x fa-leaf"></i>
+                      </div>
+                      <div style="margin-left: 8px;">
+                        <h3 class="h6 mb-1">Ingredientes Naturales</h3>
+                        <p class="small mb-0 text-muted" style="padding-left: 8px;">Sin conservantes ni aditivos artificiales</p>
+                      </div>
+                    </div>
+                    
+                    <!-- Item 2 - Alineación perfecta -->
+                    <div class="d-flex">
+                      <div class="me-3 text-primary" style="width: 48px; text-align: center;">
+                        <i class="fas fa-3x fa-hands-helping"></i>
+                      </div>
+                      <div style="margin-left: 8px;">
+                        <h3 class="h6 mb-1">Comercio Justo</h3>
+                        <p class="small mb-0 text-muted" style="padding-left: 8px;">Trabajamos directamente con productores locales</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Resto del contenido permanece igual -->
+              <div class="text-center my-5">
+                <h2 class="h3 text-primary mb-4">Nuestras Especialidades</h2>
+                <div class="row g-4">
+                  <div class="col-md-4">
+                    <div class="p-3 border rounded h-100 bg-white">
+                      <div class="text-primary mb-3">
+                        <i class="fas fa-3x fa-home"></i>
+                      </div>
+                      <h3 class="h5">Tradición Aguadina</h3>
+                      <p>Los clásicos de siempre: flan de vainilla con canela de la zona y nuestro caramelo artesanal.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="p-3 border rounded h-100 bg-white">
+                      <div class="text-primary mb-3">
+                        <i class="fas fa-3x fa-crown"></i>
+                      </div>
+                      <h3 class="h5">Línea Premium</h3>
+                      <p>Sabores gourmet con frutos del bosque nativo y miel de abejas de La Aguada.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="p-3 border rounded h-100 bg-white">
+                      <div class="text-primary mb-3">
+                        <i class="fas fa-3x fa-calendar-alt"></i>
+                      </div>
+                      <h3 class="h5">Ediciones Especiales</h3>
+                      <p>Flanes estacionales que celebran las tradiciones de Yumbel y la región del Biobío.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5 text-center">
+                <div class="p-4 bg-primary text-white rounded">
+                  <h3 class="h4 mb-3">
+                    <i class="fas fa-map-marked-alt me-2"></i>Visita Nuestro Rincón Dulce
+                  </h3>
+                  <p class="mb-1">Camino a Rere km 12, La Aguada</p>
+                  <p class="mb-1">Yumbel, Región del Biobío</p>
+                  <p class="mb-0">Horario: Lunes a Sábado de 9:00 a 18:00 hrs</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 {% endblock %}

@@ -1,6 +1,6 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar shadow-sm sticky-top">
-    <div class="container-fluid"> <!-- Cambiado a container-fluid para mejor control -->
+    <div class="container-fluid">
         <!-- Logo -->
         <a class="navbar-brand" href="#">
             <img src="{% static 'web/img/logo_navbar.png' %}" alt="Logo" height="55">
@@ -18,17 +18,51 @@
 
         <!-- Menú colapsable con alineación derecha -->
         <div class="collapse navbar-collapse text-lg-end" id="navbarContent">
-            <ul class="navbar-nav ms-auto"> <!-- ms-auto empuja los links a la derecha -->
+            <ul class="navbar-nav ms-auto">
+                <!-- INICIO -->
                 <li class="nav-item">
-                    <a class="nav-link active px-lg-3" href="#">INICIO</a>
+                    <a class="nav-link px-lg-3" href="{% url 'home' %}">INICIO</a>
                 </li>
+
+                <!-- BIENVENIDO -->
                 <li class="nav-item">
-                    <a class="nav-link px-lg-3" href="#">BIENVENIDO</a>
+                    <a class="nav-link px-lg-3" href="{% url 'welcome' %}">BIENVENIDO</a>
                 </li>
+
+                <!-- ACERCA -->
                 <li class="nav-item">
-                    <a class="nav-link px-lg-3" href="#">ACERCA</a>
+                    <a class="nav-link px-lg-3" href="{% url 'about' %}">ACERCA</a>
                 </li>
+
+                <!-- CONTACTO-->
+                <li class="nav-item">
+                    <a class="nav-link px-lg-3" href="{% url 'contact' %}">CONTACTO</a>
+                </li>
+
+                {% if user.is_authenticated %}
+                    <!-- Nombre de usuario -->
+                    <li class="nav-item d-flex align-items-center px-lg-2">
+                        <span class="nav-link small mb-0">{{ user.username }}</span>
+                    </li>
+
+                    <!-- Logout -->
+                    <li class="nav-item d-flex align-items-center px-lg-2">
+                        <form method="post" action="" class="m-0">              <!--  url 'logout'  -->
+                            {% csrf_token %}
+                            <button type="submit" class="nav-link px-lg-3 bg-transparent border-0 logout-btn">
+                                Salir
+                            </button>
+                        </form>
+                    </li>
+                {% else %}
+                    <!-- Registrarse -->
+                    <li class="nav-item d-flex align-items-center px-lg-2">
+                        <a class="nav-link small" href="">Registrarse</a>       <!--  url 'signup'  -->
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>
 </nav>
+
+
