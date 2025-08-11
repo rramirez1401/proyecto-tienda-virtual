@@ -6,78 +6,55 @@
 {% block header %}{% endblock %}
 
 <!-- Añado el contenido del body -->
+
 {% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Contáctanos</h2>
 
-<section class="py-5 bg-light">
-  <div class="container py-4">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 col-md-10">
-        
-        <!-- Tarjeta del formulario -->
-        <div class="card border-0 shadow-sm">
-          <!-- Cabecera -->
-          <div class="card-header bg-primary text-white py-4">
-            <div class="text-center">
-              <h1 class="h2 mb-3">Onlyflans Contacto</h1>
-              <p class="mb-0 opacity-75">Complete el formulario y nos pondremos en contacto contigo a la brevedad</p>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
             </div>
-          </div>
-          
-          <!-- Cuerpo -->
-          <div class="card-body p-4 p-md-5">
-            <form method="post">
-              {% csrf_token %}
-              
-              <div class="row g-3">
-                {% for field in form %}
-                <div class="col-md-{% if 'message' in field.name %}12{% else %}6{% endif %}">
-                  <div class="form-floating">
-                    {% if 'message' in field.name %}
-                      <textarea class="form-control {% if field.errors %}is-invalid{% endif %}" 
-                                id="{{ field.id_for_label }}" 
-                                name="{{ field.name }}"
-                                style="height: 150px; resize: none;"
-                                placeholder="{{ field.label }}"
-                                required>{{ field.value|default:'' }}</textarea>
-                    {% else %}
-                      <input type="{{ field.field.widget.input_type }}" 
-                             class="form-control {% if field.errors %}is-invalid{% endif %}" 
-                             id="{{ field.id_for_label }}" 
-                             name="{{ field.name }}"
-                             placeholder="{{ field.label }}"
-                             value="{{ field.value|default:'' }}"
-                             required>
-                    {% endif %}
-                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {% endfor %}
+    {% endif %}
 
-                    {% if field.errors %}
-                      <div class="invalid-feedback">
-                        {{ field.errors|striptags }}
-                      </div>
-                    {% endif %}
-                  </div>
+    <form method="post" novalidate>
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="id_customer_name" class="form-label">Nombre</label>
+            {{ form.customer_name }}
+            {% if form.customer_name.errors %}
+                <div class="text-danger small">
+                    {{ form.customer_name.errors|striptags }}
                 </div>
-                {% endfor %}
-              </div>
-              
-              <div class="d-grid mt-4">
-                <button type="submit" class="btn btn-primary btn-lg py-3">
-                  <i class="fas fa-paper-plane me-2"></i> Enviar Mensaje
-                </button>
-              </div>
-            </form>
-          </div>
-          
-          <!-- Pie de tarjeta -->
-          <div class="card-footer bg-transparent text-center py-3">
-            <p class="text-muted small mb-0">
-              También puede contactarnos directamente en <a href="mailto:contacto@onlyflans.cl">contacto@onlyflans.cl</a>
-            </p>
-          </div>
+            {% endif %}
         </div>
-        
-      </div>
-    </div>
-  </div>
-</section>
+
+        <div class="mb-3">
+            <label for="id_customer_email" class="form-label">Correo electrónico</label>
+            {{ form.customer_email }}
+            {% if form.customer_email.errors %}
+                <div class="text-danger small">
+                    {{ form.customer_email.errors|striptags }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_message" class="form-label">Mensaje</label>
+            {{ form.message }}
+            {% if form.message.errors %}
+                <div class="text-danger small">
+                    {{ form.message.errors|striptags }}
+                </div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
 {% endblock %}
+

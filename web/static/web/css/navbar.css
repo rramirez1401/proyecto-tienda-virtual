@@ -1,8 +1,8 @@
 .custom-navbar {
   background: linear-gradient(
     to right,
-    #db91aa 0%,
-    hsl(345, 67%, 83%) 50%,
+    #f8b6cc 0%,
+    rgb(247, 160, 180) 50%,
     #ff75a3 100%
   );
   padding: 0.7rem 0;

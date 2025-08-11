@@ -12,15 +12,14 @@
     <!-- Hero principal -->
     <section class="hero text-center">
         <div class="container">
-            <h1 class="display-5 fw-bold">Bienvenido a Onlyflans</h1>
-            <p class="lead text-black">Descubre productos seleccionados especialmente para ti</p>
+            <h1 class="display-5 fw-bold">Bienvenido {{ user.username }}</h1>
         </div>
     </section>
 
     <!-- Sección de productos -->
     <main class="flex-grow-1">
         <div class="container px-4 px-lg-5">
-            <h2 class="text-center mb-5 fw-bold text-dark">Nuestros Productos</h2>
+            <h2 class="text-center mb-5 fw-bold text-dark">Revisa nuestros productos Premium para ti</h2>
 
             <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 {% for flan in flanes_privados %}

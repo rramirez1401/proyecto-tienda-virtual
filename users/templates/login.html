@@ -1,0 +1,32 @@
+{% extends "componentes/base.html" %}
+
+{% block title %}Ingresa a tu cuenta | Onlyflans{% endblock %}
+
+{% block header %}{% endblock %}
+
+<!-- Añado el contenido del body -->
+
+{% block content %}
+<div class="container mt-5" style="max-width: 400px;">
+    <h2 class="mb-4 text-center">Iniciar sesión</h2>
+
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            Usuario o contraseña incorrectos.
+        </div>
+    {% endif %}
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_username" class="form-label">Usuario</label>
+            {{ form.username }}
+        </div>
+        <div class="mb-3">
+            <label for="id_password" class="form-label">Contraseña</label>
+            {{ form.password }}
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+    </form>
+</div>
+{% endblock %}

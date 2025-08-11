@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Flan, ContactForm
+from .models import Flan
 from django.contrib.auth.decorators import login_required
-from .forms import ContactFormForm
+from .forms import ContactFormModelForm
 from django.contrib import messages
 
 
@@ -21,22 +21,13 @@ def about(request):
 
 def contact(request):
     if request.method == "POST":
-        form = ContactFormForm(request.POST)
+        form = ContactFormModelForm(request.POST)
         if form.is_valid():
-            # Extraigo los datos del formulario
-            nombre = form.cleaned_data["customer_name"]
-            correo = form.cleaned_data["customer_email"]
-            mensaje = form.cleaned_data["message"]
-            
-            # Creo una instancia de ContactForm para pasarle los datos del formulario
-            contacto = ContactForm(customer_name = nombre, customer_email=correo, message=mensaje)
-            contacto.save()
-
+            form.save()
             messages.success(request, "Gracias por tu mensaje!!! Nos pondremos en contacto contigo lo antes posible")
-
             return redirect("success")
     
     else:
-        form = ContactFormForm()
+        form = ContactFormModelForm()
     
     return render(request, "contact.html", {"form":form})

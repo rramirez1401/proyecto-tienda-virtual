@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "web",
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            BASE_DIR / "web" / "templates",
+
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -103,6 +104,12 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+
+
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "welcome" 
+LOGOUT_REDIRECT_URL = "login" 
 
 
 # Internationalization
