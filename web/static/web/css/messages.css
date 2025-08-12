@@ -1,0 +1,9 @@
+.alert-border-error {
+    border-top: 4px solid #a94442;
+    border-bottom: 4px solid #a94442;
+}
+
+.alert-border-success {
+    border-top: 4px solid #2e7d32;
+    border-bottom: 4px solid #2e7d32;
+}

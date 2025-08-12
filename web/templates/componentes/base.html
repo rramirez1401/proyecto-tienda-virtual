@@ -12,11 +12,43 @@
     
     {% include "componentes/navbar.html" %}
     
+    {% include "componentes/messages.html" %}
+
     {% block header %}
-      {% include "componentes/header.html" %}
+      {% include "componentes/header.html" %} 
     {% endblock %}
 
-    <main class="flex-fill container-fluid px-0"> <!-- Se expande para empujar el footer -->
+    <main class="flex-fill container-fluid px-0"> 
+
+      <!-- Modal de contacto global -->
+      <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form method="post" action="{% url 'contact' %}">
+              {% csrf_token %}
+              <div class="modal-header">
+                <h5 class="modal-title" id="contactModalLabel">Contáctanos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body">
+                {{ contact_form.as_p }}
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!--  Modal: Iniciar Sesión -->
+      {% include "modals/modal_login.html" %}
+
+
+      <!--  Modal: Registrarse -->
+      {% include "modals/modal_register.html" %}
+
+          
       {% block content %}{% endblock %}
     </main>
 
@@ -24,3 +56,4 @@
     
   </body>
 </html>
+

@@ -5,10 +5,9 @@ from .forms import ContactFormModelForm
 from django.contrib import messages
 
 
-
 def home(request):
-    flanes_publicos = Flan.objects.filter(is_private=False)
-    return render(request, "index.html", {"flanes":flanes_publicos})
+    flanes = Flan.objects.filter(is_private=False)
+    return render(request, "index.html", {"flanes": flanes})
 
 @login_required
 def welcome(request):
@@ -24,10 +23,8 @@ def contact(request):
         form = ContactFormModelForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Gracias por tu mensaje!!! Nos pondremos en contacto contigo lo antes posible")
-            return redirect("success")
-    
-    else:
-        form = ContactFormModelForm()
-    
-    return render(request, "contact.html", {"form":form})
+            messages.success(request, "Gracias por tu mensaje. ¡Nos pondremos en contacto contigo pronto!")
+        else:
+            messages.error(request, "Por favor corrige los errores del formulario.")
+    return redirect(request.META.get("HTTP_REFERER", "/"))
+

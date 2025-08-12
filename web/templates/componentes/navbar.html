@@ -34,7 +34,9 @@
 
                 <!-- CONTACTO-->
                 <li class="nav-item">
-                    <a class="nav-link px-lg-3" href="{% url 'contact' %}">CONTACTO</a>
+                    <button type="button" class="nav-link px-lg-3 btn btn-link text-decoration-none" data-bs-toggle="modal" data-bs-target="#contactModal">
+                        CONTACTO
+                    </button>
                 </li>
 
                 <!-- BIENVENIDO -->
@@ -52,21 +54,17 @@
 
                     <!-- Logout -->
                     <li class="nav-item d-flex align-items-center px-lg-2">
-                        <form method="post" action="{% url 'logout' %}" class="m-0">          
-                            {% csrf_token %}
-                            <button type="submit" class="nav-link px-lg-3 bg-transparent border-0 logout-btn">
-                                Salir
-                            </button>
-                        </form>
+                        <a class="nav-link px-lg-3" href="{% url 'logout' %}">Salir</a>
                     </li>
                 {% else %}
                     <!-- Iniciar Sesion -->
                     <li class="nav-item d-flex align-items-center px-lg-2">
-                        <a class="nav-link small" href="{% url 'login' %}">Iniciar Sesion</a>      
+                        <button type="button" class="nav-link btn btn-link text-decoration-none small" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</button>
                     </li>
-                    <!-- Registrarse -->
+
+                    <!-- Registrarse (modal) -->
                     <li class="nav-item d-flex align-items-center px-lg-2">
-                        <a class="nav-link small" href="{% url 'signup' %}">Registrarse</a>       
+                        <button type="button" class="nav-link btn btn-link text-decoration-none small" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</button>
                     </li>
                 {% endif %}
             </ul>
