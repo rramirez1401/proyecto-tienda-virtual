@@ -23,7 +23,6 @@ class WelcomeView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context["flanes_publicos"] = Flan.objects.filter(is_private=False)
         context["flanes_privados"] = Flan.objects.filter(is_private=True)
-
         return context
 
 

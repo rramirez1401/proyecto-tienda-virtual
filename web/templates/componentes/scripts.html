@@ -17,4 +17,24 @@
 <link rel="stylesheet" href="{% static 'web/css/index.css' %}">
 <link rel="stylesheet" href="{% static 'web/css/welcome.css' %}">
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const modals = ['loginModal', 'registerModal', 'contactModal'];
 
+    modals.forEach(id => {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.addEventListener('show.bs.modal', () => {
+                const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                const forms = modal.querySelectorAll('form');
+                forms.forEach(form => {
+                    let csrfInput = form.querySelector('input[name="csrfmiddlewaretoken"]');
+                    if (csrfInput) {
+                        csrfInput.value = token;
+                    }
+                });
+            });
+        }
+    });
+});
+</script>

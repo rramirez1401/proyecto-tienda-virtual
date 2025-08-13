@@ -28,9 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 CSRF_TRUSTED_ORIGINS = [
-"https://localhost:8000"
-]
+    "https://localhost:8000",
+    "https://orange-potato-69wxrp4p6g7gfr597-8000.app.github.dev",
 
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "core.middleware.clear_messages_middleware.ClearStaleMessagesMiddleware",
 ]
 
 ROOT_URLCONF = "onlyflans.urls"
