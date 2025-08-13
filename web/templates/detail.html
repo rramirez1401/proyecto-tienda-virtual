@@ -1,0 +1,66 @@
+{% extends "componentes/base.html" %}
+
+{% block title %}Detalle Producto | OnlyFlans{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="row g-4 align-items-center card-detail bg-white p-4">
+                <!-- Imagen a la izquierda -->
+                <div class="col-md-5 text-center">
+                    <img src="{{ flan.imagen.url }}" class="img-fluid rounded shadow-lg" alt="{{ flan.name }}" style="max-height: 500px; object-fit: cover;">
+                </div>
+                <!-- Info a la derecha -->
+                <div class="col-md-7">
+                    <h2 class="fw-bold mb-2" style="color: #5f5aaf;">{{ flan.name }}</h2>
+                    <p class="uuid-text mb-2">UUID: {{ flan.flan_uuid }}</p>
+                    <h4 class="mb-3" style="color: #5f5aaf;">Precio: CLP {{ flan.price|floatformat:0 }}</h4>
+                    <p class="mb-4 text-muted" style="font-size: 1.1rem;">{{ flan.description }}</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-flan px-4 py-2 fw-bold">Comprar ahora</a>
+                        <a href="#" class="btn btn-flan-outline px-4 py-2 fw-bold">Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Carrusel de productos relacionados -->
+            <div class="mt-5 d-none d-md-block">
+                <h5 class="fw-bold mb-3" style="color: #5f5aaf;">Productos relacionados</h5>
+                <div id="relacionadosCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for grupo in relacionados_grupos %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <div class="row justify-content-center">
+                                {% for producto in grupo %}
+                                <div class="col-md-3">
+                                    <div class="card border-0 shadow-sm mb-3 h-100">
+                                        <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.name }}" style="height: 180px; object-fit: cover;">
+                                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                                            <h6 class="card-title fw-bold" style="color: #5f5aaf;">{{ producto.name }}</h6>
+                                            <p class="text-muted mb-2">CLP {{ producto.price|floatformat:0 }}</p>
+                                            <a href="{% url 'detalle' producto.slug %}" class="btn btn-flan-outline btn-sm mt-auto">Ver más</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="carousel-item active">
+                            <p class="text-center">No hay productos relacionados.</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#relacionadosCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#relacionadosCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

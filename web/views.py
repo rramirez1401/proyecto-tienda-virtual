@@ -1,30 +1,47 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .models import Flan
-from django.contrib.auth.decorators import login_required
-from .forms import ContactFormModelForm
-from django.contrib import messages
+from django.views.generic import ListView, TemplateView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-def home(request):
-    flanes = Flan.objects.filter(is_private=False)
-    return render(request, "index.html", {"flanes": flanes})
 
-@login_required
-def welcome(request):
-    flanes_privados = Flan.objects.filter(is_private=True)
-    return render(request, "welcome.html", {"flanes_privados":flanes_privados})
+class HomeView(ListView):
+    model = Flan
+    template_name = "index.html"
+    context_object_name = "flanes"
+
+    def get_queryset(self):
+        return Flan.objects.filter(is_private=False)
+
+class WelcomeView(LoginRequiredMixin, ListView):
+    model = Flan
+    template_name = "welcome.html"
+    context_object_name = "flanes_privados"
+
+    def get_queryset(self):
+        return Flan.objects.filter(is_private=True)
+
+class AboutView(TemplateView):
+    template_name = "about.html"
 
 
-def about(request):
-    return render(request, "about.html", {})
 
-def contact(request):
-    if request.method == "POST":
-        form = ContactFormModelForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Gracias por tu mensaje. ¡Nos pondremos en contacto contigo pronto!")
+def group_queryset(queryset, n):
+    return [list(queryset[i:i + n]) for i in range(0, len(queryset), n)]
+
+class FlanDetailView(DetailView):
+    model = Flan
+    template_name = "detail.html"
+    context_object_name = "flan"
+    slug_field = "slug"
+    slug_url_kwarg = "slug"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        if user.is_authenticated:
+            relacionados = Flan.objects.exclude(pk=self.object.pk)
         else:
-            messages.error(request, "Por favor corrige los errores del formulario.")
-    return redirect(request.META.get("HTTP_REFERER", "/"))
-
+            relacionados = Flan.objects.filter(is_private=False).exclude(pk=self.object.pk)
+        context['relacionados_grupos'] = group_queryset(relacionados, 4)
+        return context

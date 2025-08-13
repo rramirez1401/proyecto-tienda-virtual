@@ -9,8 +9,31 @@
             <div class="modal-body">
                 <form method="post" action="{% url 'signup' %}">
                     {% csrf_token %}
-                    {{ register_form.as_p }}
-                    <button type="submit" class="btn btn-success w-100">Registrarse</button>
+                    <div class="mb-3">
+                        <label for="id_first_name" class="form-label">Nombre</label>
+                        {{ register_form.first_name }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_last_name" class="form-label">Apellido</label>
+                        {{ register_form.last_name }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_email" class="form-label">Correo electrónico</label>
+                        {{ register_form.email }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_username" class="form-label">Nombre de usuario</label>
+                        {{ register_form.username }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_password1" class="form-label">Contraseña</label>
+                        {{ register_form.password1 }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_password2" class="form-label">Repetir contraseña</label>
+                        {{ register_form.password2 }}
+                    </div>
+                    <button type="submit" class="btn w-100" style="background-color: #5f5aaf; color: #fff;">Registrarse</button>
                 </form>
             </div>
         </div>

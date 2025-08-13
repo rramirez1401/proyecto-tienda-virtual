@@ -1,14 +1,10 @@
 
 from django.urls import path
-from .views import home, about, welcome, contact
-from django.views.generic import TemplateView
-
+from .views import HomeView, AboutView, WelcomeView, FlanDetailView
 
 urlpatterns = [
-    path("", home, name="home"),
-    path("acerca/", about, name="about"),
-    path("bienvenido/", welcome, name="welcome"),
-    path("contacto/", contact, name="contact"),
-    path("exito/", TemplateView.as_view(template_name="exito.html"), name="success"),
-
+    path("", HomeView.as_view(), name="home"),
+    path("acerca/", AboutView.as_view(), name="about"),
+    path("bienvenido/", WelcomeView.as_view(), name="welcome"),
+    path("producto/<slug:slug>/", FlanDetailView.as_view(), name="detalle"),
 ]

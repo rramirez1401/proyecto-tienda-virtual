@@ -2,11 +2,18 @@
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar shadow-sm sticky-top">
     <div class="container-fluid">
         <!-- Logo -->
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'web/img/logo_navbar.png' %}" alt="Logo" height="55">
-        </a>
+        {% if user.is_authenticated %} 
+            <a class="navbar-brand" href="{% url 'welcome' %}">
+                <img src="{% static 'web/img/logo_navbar.png' %}" alt="Logo" height="55">
+            </a>
+        {% else %}
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'web/img/logo_navbar.png' %}" alt="Logo" height="55">
+            </a> 
+        {% endif %}    
+            
 
-        <!-- Botón hamburguesa a la derecha -->
+        <!-- Botón hamburguesa -->
         <button 
             class="navbar-toggler ms-auto" 
             type="button" 
@@ -16,7 +23,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Menú colapsable con alineación derecha -->
+        <!-- Menú colapsable -->
         <div class="collapse navbar-collapse text-lg-end" id="navbarContent">
             <ul class="navbar-nav ms-auto">
 
@@ -42,22 +49,17 @@
                 <!-- BIENVENIDO -->
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link px-lg-3" href="{% url 'welcome' %}">BIENVENIDO</a>
+                    <a class="nav-link px-lg-3" href="{% url 'welcome' %}">BIENVENIDO @{{ user.username }}</a>
                 </li>
                 {% endif %}                
 
                 {% if user.is_authenticated %}
-                    <!-- Nombre de usuario -->
-                    <li class="nav-item d-flex align-items-center px-lg-2">
-                        <span class="nav-link small mb-0">{{ user.username }}</span>
-                    </li>
-
                     <!-- Logout -->
                     <li class="nav-item d-flex align-items-center px-lg-2">
                         <a class="nav-link px-lg-3" href="{% url 'logout' %}">Salir</a>
                     </li>
                 {% else %}
-                    <!-- Iniciar Sesion -->
+                    <!-- Iniciar Sesion (modal) -->
                     <li class="nav-item d-flex align-items-center px-lg-2">
                         <button type="button" class="nav-link btn btn-link text-decoration-none small" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</button>
                     </li>

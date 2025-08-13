@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Flan, ContactForm
+from .models import Flan
 
 # Register your models here.
 
@@ -7,6 +7,3 @@ from .models import Flan, ContactForm
 class ProductoAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(ContactForm)
-class ContactFormAdmin(admin.ModelAdmin):
-    pass

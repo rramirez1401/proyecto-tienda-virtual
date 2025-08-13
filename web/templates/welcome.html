@@ -31,7 +31,7 @@
                             <p class="text-muted mb-0">CLP {{ flan.price|floatformat:0 }}</p>
                         </div>
                         <div class="card-footer bg-transparent text-center pb-4 border-0">
-                            <a href="" class="btn btn-outline-primary btn-sm btn-view">Ver más</a>      <!-- url 'detalle' producto.pk -->
+                            <a href="{% url 'detalle' flan.slug %}" class="btn btn-outline-primary btn-sm btn-view">Ver más</a>      <!-- url 'detalle' producto.pk -->
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,5 @@
         </div>
     </main>
 </body>
-
-
 
 {% endblock %}

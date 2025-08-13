@@ -1,19 +1,22 @@
 {% extends "componentes/base.html" %}
 
-<!-- Modificacion del titulo de la pestaña -->
+{% load static %}
+
+<!-- Modificación del título de la pestaña -->
 {% block title %}Inicio | OnlyFlans{% endblock %}
 
-<!-- Añado el contenido del body -->
+<!-- Contenido del body -->
 {% block content %}
 
 
 <body class="d-flex flex-column min-vh-100">
 
-    <!-- Mensaje principal -->
-    <section class="hero text-center">
+    <!-- Hero principal -->
+    <section class="hero text-center py-4">
         <div class="container">
             <h1 class="display-5 fw-bold">Bienvenido a Onlyflans</h1>
-            <p class="lead text-black">Descubre productos seleccionados especialmente para ti</p>
+            <p class="lead">Descubre productos seleccionados especialmente para ti</p>
+            <p class="lead">Registrate para acceder a nuestros productos premium.</p>
         </div>
     </section>
 
@@ -32,17 +35,14 @@
                             <p class="text-muted mb-0">CLP {{ flan.price|floatformat:0 }}</p>
                         </div>
                         <div class="card-footer bg-transparent text-center pb-4 border-0">
-                            <a href="" class="btn btn-outline-primary btn-sm btn-view">Ver más</a>      <!-- url 'detalle' producto.pk -->
+                            <a href="{% url 'detalle' flan.slug %}" class="btn btn-sm btn-view">Ver más</a>
                         </div>
                     </div>
                 </div>
-
                 {% endfor %}
             </div>
         </div>
     </main>
 </body>
-
-
 
 {% endblock %}

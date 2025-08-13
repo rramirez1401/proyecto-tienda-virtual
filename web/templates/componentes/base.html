@@ -8,7 +8,7 @@
     {% include "componentes/scripts.html" %}
   </head>
 
-  <body class="d-flex flex-column min-vh-100 container-fluid px-0"> <!-- Flexbox vertical -->
+  <body class="d-flex flex-column min-vh-100 container-fluid px-0"> 
     
     {% include "componentes/navbar.html" %}
     
@@ -21,37 +21,19 @@
     <main class="flex-fill container-fluid px-0"> 
 
       <!-- Modal de contacto global -->
-      <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <form method="post" action="{% url 'contact' %}">
-              {% csrf_token %}
-              <div class="modal-header">
-                <h5 class="modal-title" id="contactModalLabel">Contáctanos</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-              </div>
-              <div class="modal-body">
-                {{ contact_form.as_p }}
-              </div>
-              <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Enviar</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+      {% include "modals/modal_contact.html" %}
 
       <!--  Modal: Iniciar Sesión -->
       {% include "modals/modal_login.html" %}
 
-
       <!--  Modal: Registrarse -->
       {% include "modals/modal_register.html" %}
 
-          
+      <!-- Contenido de página -->    
       {% block content %}{% endblock %}
     </main>
 
+    <!-- Footer -->
     {% include "componentes/footer.html" %}
     
   </body>

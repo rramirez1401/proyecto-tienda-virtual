@@ -1,0 +1,31 @@
+<!-- Modal de contacto global -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <form method="post" action="{% url 'contact' %}">
+                {% csrf_token %}
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title" id="contactModalLabel">Contáctanos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="id_customer_name" class="form-label">Nombre</label>
+                        {{ contact_form.customer_name }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_customer_email" class="form-label">Correo electrónico</label>
+                        {{ contact_form.customer_email }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_message" class="form-label">Mensaje</label>
+                        {{ contact_form.message }}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn w-100" style="background-color: #5f5aaf; color: #fff;">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
