@@ -58,6 +58,26 @@
     border-color: #5f5aaf;
 }
 
+.btn-toggle-publicos {
+    background-color: #5f5aaf;
+    color: #fff;
+    border: none;
+    padding: 16px 48px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+    min-width: 280px;
+    max-width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-toggle-publicos:hover,
+.btn-toggle-publicos:focus {
+    background-color: #4e4a9a;
+    color: #fff;
+}
+
 .hero h1 {
     font-family: 'Poppins', sans-serif;
     font-size: 2.6rem;
@@ -79,6 +99,11 @@
     .btn-view {
         padding: 6px 14px;
         font-size: 0.9rem;
+    }
+
+    .btn-toggle-publicos {
+        padding: 10px 24px;
+        font-size: 1rem;
     }
 
     .hero h1 {

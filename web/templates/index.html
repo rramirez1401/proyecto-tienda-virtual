@@ -2,12 +2,9 @@
 
 {% load static %}
 
-<!-- Modificación del título de la pestaña -->
 {% block title %}Inicio | OnlyFlans{% endblock %}
 
-<!-- Contenido del body -->
 {% block content %}
-
 
 <body class="d-flex flex-column min-vh-100">
 
@@ -15,8 +12,8 @@
     <section class="hero text-center py-4">
         <div class="container">
             <h1 class="display-5 fw-bold">Bienvenido a Onlyflans</h1>
-            <p class="lead">Descubre productos seleccionados especialmente para ti</p>
-            <p class="lead">Registrate para acceder a nuestros productos premium.</p>
+            <p class="lead my-0">Descubre productos seleccionados especialmente para ti</p>
+            <p class="lead">Registrate para acceder a nuestros productos premium</p>
         </div>
     </section>
 
@@ -29,13 +26,18 @@
                 {% for flan in flanes %}
                 <div class="col mb-5">
                     <div class="card h-100 border-0 shadow-sm product-card bg-white">
-                        <img class="card-img-top" src="{{ flan.imagen.url }}" alt="{{ flan.name }}" style="height: 280px; object-fit: cover;" />
+                        <a href="{% url 'detalle' flan.slug %}">
+                            <img class="card-img-top" src="{{ flan.imagen.url }}" alt="{{ flan.name }}" style="height: 280px; object-fit: cover;" />
+                        </a>
                         <div class="card-body p-4 text-center">
                             <h5 class="card-title">{{ flan.name }}</h5>
                             <p class="text-muted mb-0">CLP {{ flan.price|floatformat:0 }}</p>
                         </div>
                         <div class="card-footer bg-transparent text-center pb-4 border-0">
-                            <a href="{% url 'detalle' flan.slug %}" class="btn btn-sm btn-view">Ver más</a>
+                            <div class="d-flex justify-content-center gap-2">
+                                <button class="btn btn-outline-primary btn-sm btn-view">Comprar ahora</button>
+                                <button class="btn btn-outline-primary btn-sm btn-view">Añadir al carro</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -44,5 +46,4 @@
         </div>
     </main>
 </body>
-
 {% endblock %}

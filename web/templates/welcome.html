@@ -1,9 +1,7 @@
 {% extends "componentes/base.html" %}
 
-<!-- Modificacion del titulo de la pestaña -->
 {% block title %}Tu cuenta | OnlyFlans{% endblock %}
 
-<!-- Añado el contenido del body -->
 {% block content %}
 
 
@@ -13,10 +11,17 @@
     <section class="hero text-center">
         <div class="container">
             <h1 class="display-5 fw-bold">Bienvenido {{ user.username }}</h1>
+
+            <!-- Botón toggle -->
+            <div class="text-center my-4">
+                <button class="btn btn-toggle-publicos" type="button" data-bs-toggle="collapse" data-bs-target="#flanesPublicosCollapse" aria-expanded="false" aria-controls="flanesPublicosCollapse">
+                    Mostrar/Ocultar Productos Públicos
+                </button>
+            </div>
         </div>
     </section>
 
-    <!-- Sección de productos -->
+    <!-- Sección de productos privados -->
     <main class="flex-grow-1">
         <div class="container px-4 px-lg-5">
             <h2 class="text-center mb-5 fw-bold text-dark">Revisa nuestros productos Premium para ti</h2>
@@ -25,21 +30,53 @@
                 {% for flan in flanes_privados %}
                 <div class="col mb-5">
                     <div class="card h-100 border-0 shadow-sm product-card bg-white">
-                        <img class="card-img-top" src="{{ flan.imagen.url }}" alt="{{ flan.name }}" style="height: 280px; object-fit: cover;" />
+                        <a href="{% url 'detalle' flan.slug %}">
+                            <img class="card-img-top" src="{{ flan.imagen.url }}" alt="{{ flan.name }}" style="height: 280px; object-fit: cover;" />
+                        </a>
                         <div class="card-body p-4 text-center">
                             <h5 class="card-title">{{ flan.name }}</h5>
                             <p class="text-muted mb-0">CLP {{ flan.price|floatformat:0 }}</p>
                         </div>
                         <div class="card-footer bg-transparent text-center pb-4 border-0">
-                            <a href="{% url 'detalle' flan.slug %}" class="btn btn-outline-primary btn-sm btn-view">Ver más</a>      <!-- url 'detalle' producto.pk -->
+                            <div class="d-flex justify-content-center gap-2">
+                                <button class="btn btn-outline-primary btn-sm btn-view">Comprar ahora</button>
+                                <button class="btn btn-outline-primary btn-sm btn-view">Añadir al carro</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-
                 {% endfor %}
+            </div>
+        </div>
+
+        <!-- Sección colapsable de productos públicos -->
+        <div class="collapse" id="flanesPublicosCollapse">
+            <div class="container px-4 px-lg-5">
+                <h2 class="text-center mb-5 fw-bold text-dark">Productos públicos disponibles</h2>
+
+                <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    {% for flan in flanes_publicos %}
+                    <div class="col mb-5">
+                        <div class="card h-100 border-0 shadow-sm product-card bg-light">
+                            <a href="{% url 'detalle' flan.slug %}">
+                                <img class="card-img-top" src="{{ flan.imagen.url }}" alt="{{ flan.name }}" style="height: 280px; object-fit: cover;" />
+                            </a>
+                            <div class="card-body p-4 text-center">
+                                <h5 class="card-title">{{ flan.name }}</h5>
+                                <p class="text-muted mb-0">CLP {{ flan.price|floatformat:0 }}</p>
+                            </div>
+                            <div class="card-footer bg-transparent text-center pb-4 border-0">
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button class="btn btn-outline-primary btn-sm btn-view">Comprar ahora</button>
+                                    <button class="btn btn-outline-primary btn-sm btn-view">Añadir al carro</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </main>
 </body>
-
 {% endblock %}

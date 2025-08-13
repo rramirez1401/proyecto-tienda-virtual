@@ -37,7 +37,7 @@ class CustomLoginView(LoginView):
 class LogoutGetView(View):
     def get(self, request):
         logout(request)
-        messages.success(request, "Has cerrado sesión correctamente.")
+        messages.success(request, "Has cerrado sesión. ¡Nos vemos pronto!")
         return redirect('home')
 
 
