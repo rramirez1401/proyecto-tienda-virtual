@@ -3,7 +3,7 @@ services:
     name: proyecto-tienda-virtual
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn onlyflans.wsgi:application
+    startCommand: python manage.py migrate && python manage.py loaddata web/fixtures/flanes.json && gunicorn onlyflans.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: onlyflans.settings
