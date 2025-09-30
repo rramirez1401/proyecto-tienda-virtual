@@ -1,11 +1,11 @@
 from users.forms import RegisterForm, ContactFormModelForm
-from django.contrib.auth.forms import AuthenticationForm
+from users.forms import CustomAuthenticationForm
 
 def contact_form_processor(request):
     return {"contact_form": ContactFormModelForm()}
 
 def auth_forms(request):
-    login_form = AuthenticationForm()
+    login_form = CustomAuthenticationForm()
     for field in login_form.fields.values():
         field.widget.attrs["class"] = "form-control"
     register_form = RegisterForm()

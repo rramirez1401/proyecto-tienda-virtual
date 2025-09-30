@@ -19,6 +19,7 @@
       {% include "componentes/header.html" %} 
     {% endblock %}
 
+
     <main class="flex-fill container-fluid px-0"> 
 
       <!-- Modal de contacto global -->
@@ -33,6 +34,30 @@
       <!-- Contenido de página -->    
       {% block content %}{% endblock %}
     </main>
+
+    <!-- Script para abrir el modal si hay errores en el formulario -->
+    {% if register_form.errors %}
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+          registerModal.show();
+        });
+      </script>
+    {% elif login_form.errors %}
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+          loginModal.show();
+        });
+      </script>
+    {% elif contact_form.errors %}
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var contactModal = new bootstrap.Modal(document.getElementById('contactModal'));
+          contactModal.show();
+        });
+      </script>
+    {% endif %}
 
     <!-- Footer -->
     {% include "componentes/footer.html" %}

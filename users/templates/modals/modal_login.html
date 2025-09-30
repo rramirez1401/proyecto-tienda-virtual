@@ -1,21 +1,32 @@
 <!--  Modal: Iniciar Sesión -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 400px; margin: auto;">
         <div class="modal-content border-0 shadow">
             <div class="modal-header bg-light">
                 <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body p-3">
                 <form method="post" action="{% url 'login' %}">
                     {% csrf_token %}
-                    <div class="mb-3">
+                    {% if login_form.non_field_errors %}
+                        <div class="alert alert-danger py-2 px-3 mb-3 w-100" role="alert" style="font-size: 0.95em;">
+                            {{ login_form.non_field_errors|striptags }}
+                        </div>
+                    {% endif %}
+                    <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_username" class="form-label">Nombre de usuario</label>
                         {{ login_form.username }}
+                        {% if login_form.username.errors %}
+                            <div class="text-danger small w-100">{{ login_form.username.errors }}</div>
+                        {% endif %}
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_password" class="form-label">Contraseña</label>
                         {{ login_form.password }}
+                        {% if login_form.password.errors %}
+                            <div class="text-danger small w-100">{{ login_form.password.errors }}</div>
+                        {% endif %}
                     </div>
                     <button type="submit" class="btn w-100" style="background-color: #5f5aaf; color: #fff;">Acceder</button>
                 </form>

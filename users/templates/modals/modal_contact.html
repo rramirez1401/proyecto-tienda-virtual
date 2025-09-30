@@ -12,14 +12,23 @@
                     <div class="mb-3">
                         <label for="id_customer_name" class="form-label">Nombre</label>
                         {{ contact_form.customer_name }}
+                        {% if contact_form.customer_name.errors %}
+                            <div class="text-danger small">{{ contact_form.customer_name.errors }}</div>
+                        {% endif %}
                     </div>
                     <div class="mb-3">
                         <label for="id_customer_email" class="form-label">Correo electrónico</label>
                         {{ contact_form.customer_email }}
+                        {% if contact_form.customer_email.errors %}
+                            <div class="text-danger small">{{ contact_form.customer_email.errors }}</div>
+                        {% endif %}
                     </div>
                     <div class="mb-3">
                         <label for="id_message" class="form-label">Mensaje</label>
                         {{ contact_form.message }}
+                        {% if contact_form.message.errors %}
+                            <div class="text-danger small">{{ contact_form.message.errors }}</div>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="modal-footer">

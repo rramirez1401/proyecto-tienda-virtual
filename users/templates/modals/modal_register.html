@@ -9,29 +9,52 @@
             <div class="modal-body">
                 <form method="post" action="{% url 'signup' %}">
                     {% csrf_token %}
-                    <div class="mb-3">
+                    {% if register_form.non_field_errors %}
+                        <div class="alert alert-danger py-2 px-3 mb-3 w-100" role="alert" style="font-size: 0.95em;">
+                            {{ register_form.non_field_errors|striptags }}
+                        </div>
+                    {% endif %}
+                    <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_first_name" class="form-label">Nombre</label>
                         {{ register_form.first_name }}
+                        {% if register_form.first_name.errors %}
+                            <div class="text-danger small w-100">{{ register_form.first_name.errors }}</div>
+                        {% endif %}
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_last_name" class="form-label">Apellido</label>
                         {{ register_form.last_name }}
+                        {% if register_form.last_name.errors %}
+                            <div class="text-danger small w-100">{{ register_form.last_name.errors }}</div>
+                        {% endif %}
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_email" class="form-label">Correo electrónico</label>
                         {{ register_form.email }}
+                        {% if register_form.email.errors %}
+                            <div class="text-danger small w-100">{{ register_form.email.errors }}</div>
+                        {% endif %}
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_username" class="form-label">Nombre de usuario</label>
                         {{ register_form.username }}
+                        {% if register_form.username.errors %}
+                            <div class="text-danger small w-100">{{ register_form.username.errors }}</div>
+                        {% endif %}
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_password1" class="form-label">Contraseña</label>
                         {{ register_form.password1 }}
+                        {% if register_form.password1.errors %}
+                            <div class="text-danger small w-100">{{ register_form.password1.errors }}</div>
+                        {% endif %}
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_password2" class="form-label">Repetir contraseña</label>
                         {{ register_form.password2 }}
+                        {% if register_form.password2.errors %}
+                            <div class="text-danger small w-100">{{ register_form.password2.errors }}</div>
+                        {% endif %}
                     </div>
                     <button type="submit" class="btn w-100" style="background-color: #5f5aaf; color: #fff;">Registrarse</button>
                 </form>
