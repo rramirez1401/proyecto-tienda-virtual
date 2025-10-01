@@ -113,13 +113,13 @@ USE_TZ = True
 # Static files (CSS, JS, imágenes)
 STATIC_URL = "/static/"
 
-# Carpeta donde Django buscará archivos estáticos adicionales
+# Carpeta donde Django recogerá todos los archivos estáticos en producción
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Carpeta de desarrollo (opcional, para runserver)
 STATICFILES_DIRS = [
     BASE_DIR / "web" / "static",
 ]
-
-# En free plan no usamos STATIC_ROOT ni collectstatic
-# STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Media files
 MEDIA_URL = "/media/"
