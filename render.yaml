@@ -2,11 +2,9 @@ services:
   - type: web
     name: proyecto-tienda-virtual
     env: python
-    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    buildCommand: pip install -r requirements.txt
     startCommand: gunicorn onlyflans.wsgi:application
 
     preDeploy:
-      # Ejecuta migraciones primero para crear las tablas
-      - python manage.py migrate --noinput
-      # Carga los datos de tu fixture
-      - python manage.py loaddata web/fixtures/flanes.json
+      - python manage.py migrate
+      - python manage.py collectstatic --noinput
