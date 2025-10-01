@@ -54,36 +54,3 @@ class FlanDetailView(DetailView):
         return context
 
 
-
-from django.http import HttpResponse
-from django.db import connection
-
-def test_db_connection(request):
-    try:
-        # Ejecuta una consulta simple
-        with connection.cursor() as cursor:
-            cursor.execute("SELECT 1;")
-            row = cursor.fetchone()
-        return HttpResponse(f"✅ DB OK! Resultado de SELECT 1: {row[0]}")
-    except Exception as e:
-        return HttpResponse(f"❌ Error DB: {e}")
-    
-
-
-from django.core.management import call_command
-
-def run_migrations(request):
-    try:
-        call_command("migrate", interactive=False)
-        return HttpResponse("✅ Migraciones ejecutadas correctamente")
-    except Exception as e:
-        return HttpResponse(f"❌ Error: {e}")
-    
-
-
-def load_fixtures(request):
-    try:
-        call_command("loaddata", "web/fixtures/flanes.json")
-        return HttpResponse("✅ Fixture cargado")
-    except Exception as e:
-        return HttpResponse(f"❌ Error: {e}")
