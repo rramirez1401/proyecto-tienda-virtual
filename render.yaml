@@ -2,7 +2,7 @@ services:
   - type: web
     name: proyecto-tienda-virtual
     env: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
     startCommand: gunicorn onlyflans.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
@@ -15,5 +15,7 @@ services:
         value: True
 
     preDeploy:
-      - python manage.py migrate
+      # Ejecuta migraciones primero para crear las tablas
+      - python manage.py migrate --noinput
+      # Carga los datos de tu fixture
       - python manage.py loaddata web/fixtures/flanes.json
