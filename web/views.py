@@ -52,3 +52,18 @@ class FlanDetailView(DetailView):
             relacionados = Flan.objects.filter(is_private=False).exclude(pk=self.object.pk)
         context['relacionados_grupos'] = self.group_queryset(relacionados, 4)
         return context
+
+
+
+from django.http import HttpResponse
+from django.db import connection
+
+def test_db_connection(request):
+    try:
+        # Ejecuta una consulta simple
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT 1;")
+            row = cursor.fetchone()
+        return HttpResponse(f"✅ DB OK! Resultado de SELECT 1: {row[0]}")
+    except Exception as e:
+        return HttpResponse(f"❌ Error DB: {e}")
