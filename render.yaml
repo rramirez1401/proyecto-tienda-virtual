@@ -4,15 +4,6 @@ services:
     env: python
     buildCommand: pip install --upgrade pip && pip install -r requirements.txt
     startCommand: gunicorn onlyflans.wsgi:application
-    envVars:
-      - key: DJANGO_SETTINGS_MODULE
-        value: onlyflans.settings
-      - key: DATABASE_URL
-        value: postgresql://db_tienda_virtual_yg2t_user:BT5DMxe2UEymSwKqUVyQ4mGud2gCxpzW@dpg-d3e36mruibrs73a55k10-a/db_tienda_virtual_yg2t
-      - key: SECRET_KEY
-        value: django-insecure-6@u*a&7cl227^ds^le90kaq!0d3660c(r3apfa44w1a@x*%kcs
-      - key: DEBUG
-        value: True
 
     preDeploy:
       # Ejecuta migraciones primero para crear las tablas
