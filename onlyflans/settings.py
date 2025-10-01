@@ -15,7 +15,7 @@ dotenv.load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECRET_KEY y DEBUG desde variables de entorno
+# SECRET_KEY y DEBUG
 SECRET_KEY = 'django-insecure-6@u*a&7cl227^ds^le90kaq!0d3660c(r3apfa44w1a@x*%kcs'
 DEBUG = True
 
@@ -67,7 +67,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "onlyflans.wsgi.application"
 
-# Database configuration: Postgres in Render, SQLite local fallback
+# Database configuration: Postgres en Render, SQLite local fallback
 DATABASE_URL = os.environ.get("DATABASE_URL")
 if DATABASE_URL:
     DATABASES = {
@@ -110,10 +110,15 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
-# Static files
-STATIC_URL = "static/"
-STATICFILES_DIRS = [BASE_DIR / "web/static"]
-STATIC_ROOT = BASE_DIR / "staticfiles"
+# Static files (CSS, JS, imágenes)
+STATIC_URL = "/static/"
+# Django servirá directamente estos archivos en free plan
+STATICFILES_DIRS = [
+    BASE_DIR / "web" / "static",
+    # si agregas otras apps con carpeta static, Django las detecta automáticamente
+]
+# En free plan no usamos STATIC_ROOT ni collectstatic
+# STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Media files
 MEDIA_URL = "/media/"
