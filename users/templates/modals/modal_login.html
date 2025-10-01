@@ -9,25 +9,32 @@
             <div class="modal-body p-3">
                 <form method="post" action="{% url 'login' %}">
                     {% csrf_token %}
+                    
                     {% if login_form.non_field_errors %}
                         <div class="alert alert-danger py-2 px-3 mb-3 w-100" role="alert" style="font-size: 0.95em;">
                             {{ login_form.non_field_errors|striptags }}
                         </div>
                     {% endif %}
+
+                    <!-- Campo Usuario -->
                     <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_username" class="form-label">Nombre de usuario</label>
-                        {{ login_form.username }}
+                        <input type="text" name="username" id="id_username" class="form-control" placeholder="Nombre de usuario" value="{{ login_form.username.value|default:'' }}">
                         {% if login_form.username.errors %}
                             <div class="text-danger small w-100">{{ login_form.username.errors }}</div>
                         {% endif %}
                     </div>
+
+                    <!-- Campo Contraseña -->
                     <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_password" class="form-label">Contraseña</label>
-                        {{ login_form.password }}
+                        <input type="password" name="password" id="id_password" class="form-control" placeholder="Contraseña">
                         {% if login_form.password.errors %}
                             <div class="text-danger small w-100">{{ login_form.password.errors }}</div>
                         {% endif %}
                     </div>
+
+                    <!-- Botón -->
                     <button type="submit" class="btn w-100" style="background-color: #5f5aaf; color: #fff;">Acceder</button>
                 </form>
             </div>

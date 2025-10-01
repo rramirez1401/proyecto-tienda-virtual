@@ -1,61 +1,76 @@
 <!--  Modal: Registrarse -->
 <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 400px; margin: auto;">
         <div class="modal-content border-0 shadow">
             <div class="modal-header bg-light">
                 <h5 class="modal-title" id="registerModalLabel">Crear Cuenta</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body p-3">
                 <form method="post" action="{% url 'signup' %}">
                     {% csrf_token %}
+
                     {% if register_form.non_field_errors %}
                         <div class="alert alert-danger py-2 px-3 mb-3 w-100" role="alert" style="font-size: 0.95em;">
                             {{ register_form.non_field_errors|striptags }}
                         </div>
                     {% endif %}
+
+                    <!-- Nombre -->
                     <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_first_name" class="form-label">Nombre</label>
-                        {{ register_form.first_name }}
+                        <input type="text" name="first_name" id="id_first_name" class="form-control" placeholder="Nombre" value="{{ register_form.first_name.value|default:'' }}">
                         {% if register_form.first_name.errors %}
                             <div class="text-danger small w-100">{{ register_form.first_name.errors }}</div>
                         {% endif %}
                     </div>
+
+                    <!-- Apellido -->
                     <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_last_name" class="form-label">Apellido</label>
-                        {{ register_form.last_name }}
+                        <input type="text" name="last_name" id="id_last_name" class="form-control" placeholder="Apellido" value="{{ register_form.last_name.value|default:'' }}">
                         {% if register_form.last_name.errors %}
                             <div class="text-danger small w-100">{{ register_form.last_name.errors }}</div>
                         {% endif %}
                     </div>
+
+                    <!-- Email -->
                     <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_email" class="form-label">Correo electrónico</label>
-                        {{ register_form.email }}
+                        <input type="email" name="email" id="id_email" class="form-control" placeholder="Correo electrónico" value="{{ register_form.email.value|default:'' }}">
                         {% if register_form.email.errors %}
                             <div class="text-danger small w-100">{{ register_form.email.errors }}</div>
                         {% endif %}
                     </div>
+
+                    <!-- Usuario -->
                     <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_username" class="form-label">Nombre de usuario</label>
-                        {{ register_form.username }}
+                        <input type="text" name="username" id="id_username" class="form-control" placeholder="Nombre de usuario" value="{{ register_form.username.value|default:'' }}">
                         {% if register_form.username.errors %}
                             <div class="text-danger small w-100">{{ register_form.username.errors }}</div>
                         {% endif %}
                     </div>
+
+                    <!-- Contraseña -->
                     <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_password1" class="form-label">Contraseña</label>
-                        {{ register_form.password1 }}
+                        <input type="password" name="password1" id="id_password1" class="form-control" placeholder="Contraseña">
                         {% if register_form.password1.errors %}
                             <div class="text-danger small w-100">{{ register_form.password1.errors }}</div>
                         {% endif %}
                     </div>
+
+                    <!-- Repetir contraseña -->
                     <div class="mb-3 d-flex flex-column gap-1">
                         <label for="id_password2" class="form-label">Repetir contraseña</label>
-                        {{ register_form.password2 }}
+                        <input type="password" name="password2" id="id_password2" class="form-control" placeholder="Repetir contraseña">
                         {% if register_form.password2.errors %}
                             <div class="text-danger small w-100">{{ register_form.password2.errors }}</div>
                         {% endif %}
                     </div>
+
+                    <!-- Botón -->
                     <button type="submit" class="btn w-100" style="background-color: #5f5aaf; color: #fff;">Registrarse</button>
                 </form>
             </div>
