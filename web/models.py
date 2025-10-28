@@ -12,6 +12,7 @@ class Flan(models.Model):
     imagen = models.ImageField("Imagen", upload_to="productos/")
     slug = models.SlugField("Slug", unique=True, blank=True, editable=False)
     is_private = models.BooleanField("Privado", default=False)
+    stock = models.PositiveIntegerField("Stock", default=0, help_text="Unidades disponibles")
 
 ## Genera automaticamente el slug a partir del nombre
     def save(self, *args, **kwargs):
