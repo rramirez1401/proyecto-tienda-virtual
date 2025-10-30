@@ -132,3 +132,8 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+## Tiempo de expiracion de la reserva en minutos
+
+RESERVATION_TTL_MINUTES = int(os.environ.get("RESERVATION_TTL_MINUTES", 15))

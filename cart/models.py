@@ -17,7 +17,7 @@ class Order(models.Model):
         (STATUS_CANCELLED, 'Cancelado'),
     ]
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='orders')
     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default=STATUS_RESERVED)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -29,11 +29,14 @@ class Order(models.Model):
 
     
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items')
     flan = models.ForeignKey(Flan, on_delete=models.PROTECT)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    quantity = models.PositiveIntegerField()
+    quantity = models.PositiveIntegerField(default=1)
+
+
+    def line_total(self):
+        return self.price * self.quantity
 
     def __str__(self):
-        """Retorna subtotal de este ítem (price * quantity)."""
-        return self.price * self.quantity
+        return f"{self.quantity} x {self.flan.name}"
