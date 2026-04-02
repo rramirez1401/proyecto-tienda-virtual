@@ -7,7 +7,7 @@
       "name": "Flan artesanal con frutillas",
       "description": "Flan casero con frutillas frescas y textura suave.",
       "price": 3200,
-      "imagen": "productos/Flan-artesanal-con-frutillas.jpg",
+      "imagen": "web/img/productos/Flan-artesanal-con-frutillas.jpg",
       "slug": "flan-artesanal-con-frutillas",
       "is_private": true
     }
@@ -20,7 +20,7 @@
       "name": "Flan artesanal bisabor",
       "description": "Flan artesanal con combinación de dos sabores únicos.",
       "price": 3500,
-      "imagen": "productos/flan-artesanal-bisabor.jpg",
+      "imagen": "web/img/productos/flan-artesanal-bisabor.jpg",
       "slug": "flan-artesanal-bisabor",
       "is_private": true
     }
@@ -33,7 +33,7 @@
       "name": "Flan artesanal con berries",
       "description": "Suave flan casero con una mezcla de berries frescos.",
       "price": 3600,
-      "imagen": "productos/flan-artesanal-con-berries.jpg",
+      "imagen": "web/img/productos/flan-artesanal-con-berries.jpg",
       "slug": "flan-artesanal-con-berries",
       "is_private": true
     }
@@ -46,7 +46,7 @@
       "name": "Flan artesanal con caramelo",
       "description": "Clásico flan casero bañado en caramelo dorado.",
       "price": 3100,
-      "imagen": "productos/flan-artesanal-con-caramelo.jpg",
+      "imagen": "web/img/productos/flan-artesanal-con-caramelo.jpg",
       "slug": "flan-artesanal-con-caramelo",
       "is_private": true
     }
@@ -59,7 +59,7 @@
       "name": "Flan artesanal con chocolate",
       "description": "Delicioso flan artesanal con cobertura de chocolate.",
       "price": 3700,
-      "imagen": "productos/flan-artesanal-con-chocolate.jpg",
+      "imagen": "web/img/productos/flan-artesanal-con-chocolate.jpg",
       "slug": "flan-artesanal-con-chocolate",
       "is_private": true
     }
@@ -72,7 +72,7 @@
       "name": "Flan artesanal con frutillas y cerezas",
       "description": "Flan artesanal acompañado de frutillas y cerezas frescas.",
       "price": 3800,
-      "imagen": "productos/flan-artesanal-con-frutillas-y-cerezas.jpg",
+      "imagen": "web/img/productos/flan-artesanal-con-frutillas-y-cerezas.jpg",
       "slug": "flan-artesanal-con-frutillas-y-cerezas",
       "is_private": true
     }
@@ -85,7 +85,7 @@
       "name": "Flan artesanal con menta",
       "description": "Refrescante flan artesanal con toque de menta natural.",
       "price": 3000,
-      "imagen": "productos/flan-artesanal-con-menta.jpg",
+      "imagen": "web/img/productos/flan-artesanal-con-menta.jpg",
       "slug": "flan-artesanal-con-menta",
       "is_private": true
     }
@@ -98,7 +98,7 @@
       "name": "Flan artesanal crema manjar",
       "description": "Suave flan artesanal acompañado de crema de manjar.",
       "price": 3900,
-      "imagen": "productos/flan-artesanal-crema-manjar.jpg",
+      "imagen": "web/img/productos/flan-artesanal-crema-manjar.jpg",
       "slug": "flan-artesanal-crema-manjar",
       "is_private": true
     }
@@ -111,7 +111,7 @@
       "name": "Flan artesanal de naranja",
       "description": "Flan artesanal con el sabor cítrico de la naranja.",
       "price": 3400,
-      "imagen": "productos/flan-artesanal-de_naranja.jpg",
+      "imagen": "web/img/productos/flan-artesanal-de_naranja.jpg",
       "slug": "flan-artesanal-de-naranja",
       "is_private": true
     }
@@ -124,7 +124,7 @@
       "name": "Flan artesanal mix berries",
       "description": "Flan artesanal con un mix de berries frescos.",
       "price": 3700,
-      "imagen": "productos/flan-artesanal-mix-berries.jpeg",
+      "imagen": "web/img/productos/flan-artesanal-mix-berries.jpeg",
       "slug": "flan-artesanal-mix-berries",
       "is_private": true
     }
@@ -137,7 +137,7 @@
       "name": "Flan Colun light",
       "description": "Flan Colun versión ligera, ideal para cuidar la dieta.",
       "price": 1800,
-      "imagen": "productos/flan-colun-light.jpeg",
+      "imagen": "web/img/productos/flan-colun-light.jpeg",
       "slug": "flan-colun-light",
       "is_private": false
     }
@@ -150,7 +150,7 @@
       "name": "Flan Colun manjar",
       "description": "Flan Colun sabor manjar, dulce y cremoso.",
       "price": 2000,
-      "imagen": "productos/flan-colun-manjar.jpg",
+      "imagen": "web/img/productos/flan-colun-manjar.jpg",
       "slug": "flan-colun-manjar",
       "is_private": false
     }
@@ -163,7 +163,7 @@
       "name": "Flan Colun vainilla",
       "description": "Clásico flan Colun sabor vainilla.",
       "price": 2000,
-      "imagen": "productos/flan-colun-vainilla.jpg",
+      "imagen": "web/img/productos/flan-colun-vainilla.jpg",
       "slug": "flan-colun-vainilla",
       "is_private": false
     }
@@ -176,7 +176,7 @@
       "name": "Flan instantáneo chocolate Regimel",
       "description": "Flan instantáneo sabor chocolate de Regimel.",
       "price": 1700,
-      "imagen": "productos/flan-instantaneo-chocolate-regimel.jpg",
+      "imagen": "web/img/productos/flan-instantaneo-chocolate-regimel.jpg",
       "slug": "flan-instantaneo-chocolate-regimel",
       "is_private": false
     }
@@ -189,7 +189,7 @@
       "name": "Flan instantáneo chocolate Vivo",
       "description": "Flan instantáneo marca Vivo sabor chocolate.",
       "price": 1600,
-      "imagen": "productos/flan-instantaneo-chocolate-vivo.jpg",
+      "imagen": "web/img/productos/flan-instantaneo-chocolate-vivo.jpg",
       "slug": "flan-instantaneo-chocolate-vivo",
       "is_private": false
     }
@@ -202,7 +202,7 @@
       "name": "Flan instantáneo fresas D’Gari",
       "description": "Flan instantáneo sabor fresas marca D’Gari.",
       "price": 1500,
-      "imagen": "productos/flan-instantaneo-fresas-dgari.jpg",
+      "imagen": "web/img/productos/flan-instantaneo-fresas-dgari.jpg",
       "slug": "flan-instantaneo-fresas-dgari",
       "is_private": false
     }
@@ -215,7 +215,7 @@
       "name": "Flan instantáneo lúcuma Regimel",
       "description": "Flan instantáneo sabor lúcuma marca Regimel.",
       "price": 1900,
-      "imagen": "productos/flan-instantaneo-lucuma-regimel.jpg",
+      "imagen": "web/img/productos/flan-instantaneo-lucuma-regimel.jpg",
       "slug": "flan-instantaneo-lucuma-regimel",
       "is_private": false
     }
@@ -228,7 +228,7 @@
       "name": "Flan instantáneo mandarin",
       "description": "Flan instantáneo sabor mandarina.",
       "price": 1600,
-      "imagen": "productos/flan-instantaneo-mandarin.jpg",
+      "imagen": "web/img/productos/flan-instantaneo-mandarin.jpg",
       "slug": "flan-instantaneo-mandarin",
       "is_private": false
     }
@@ -241,7 +241,7 @@
       "name": "Flan instantáneo Pronto",
       "description": "Flan instantáneo marca Pronto, fácil y rápido.",
       "price": 1700,
-      "imagen": "productos/flan-instantaneo-pronto.jpg",
+      "imagen": "web/img/productos/flan-instantaneo-pronto.jpg",
       "slug": "flan-instantaneo-pronto",
       "is_private": false
     }
@@ -254,7 +254,7 @@
       "name": "Flan instantáneo Raymundo’s",
       "description": "Flan instantáneo marca Raymundo’s.",
       "price": 1600,
-      "imagen": "productos/flan-instantaneo-raymundos.jpg",
+      "imagen": "web/img/productos/flan-instantaneo-raymundos.jpg",
       "slug": "flan-instantaneo-raymundos",
       "is_private": false
     }
@@ -267,7 +267,7 @@
       "name": "Flan instantáneo vainilla Vivo",
       "description": "Flan instantáneo marca Vivo sabor vainilla.",
       "price": 1500,
-      "imagen": "productos/flan-instantaneo-vainilla-vivo.jpg",
+      "imagen": "web/img/productos/flan-instantaneo-vainilla-vivo.jpg",
       "slug": "flan-instantaneo-vainilla-vivo",
       "is_private": false
     }
@@ -280,7 +280,7 @@
       "name": "Pack seis flanes vainilla",
       "description": "Pack familiar con seis flanes sabor vainilla.",
       "price": 6000,
-      "imagen": "productos/pack-seis-flanes-vainilla.jpg",
+      "imagen": "web/img/productos/pack-seis-flanes-vainilla.jpg",
       "slug": "pack-seis-flanes-vainilla",
       "is_private": false
     }

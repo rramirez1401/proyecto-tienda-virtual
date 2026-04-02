@@ -32,7 +32,7 @@
                 <div class="col mb-5">
                     <div class="card h-100 border-0 shadow-sm product-card bg-white">
                         <a href="{% url 'detalle' flan.slug %}">
-                            <img class="card-img-top" src="{{ flan.imagen.url }}" alt="{{ flan.name }}" style="height: 280px; object-fit: cover;" />
+                            <img class="card-img-top" src="{% static flan.imagen %}" alt="{{ flan.name }}" style="height: 280px; object-fit: cover;" />
                         </a>
                         <div class="card-body p-4 text-center">
                             <h5 class="card-title">{{ flan.name }}</h5>
@@ -60,7 +60,7 @@
                     <div class="col mb-5">
                         <div class="card h-100 border-0 shadow-sm product-card bg-light">
                             <a href="{% url 'detalle' flan.slug %}">
-                                <img class="card-img-top" src="{{ flan.imagen.url }}" alt="{{ flan.name }}" style="height: 280px; object-fit: cover;" />
+                                <img class="card-img-top" src="{% static flan.imagen %}" alt="{{ flan.name }}" style="height: 280px; object-fit: cover;" />
                             </a>
                             <div class="card-body p-4 text-center">
                                 <h5 class="card-title">{{ flan.name }}</h5>

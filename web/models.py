@@ -9,7 +9,7 @@ class Flan(models.Model):
     name = models.CharField("Nombre", max_length=64)
     description = models.TextField("Descripcion")
     price = models.DecimalField("Precio", max_digits=5, decimal_places=0)
-    imagen = models.ImageField("Imagen", upload_to="productos/")
+    imagen = models.CharField("Imagen", max_length=255, default='')
     slug = models.SlugField("Slug", unique=True, blank=True, editable=False)
     is_private = models.BooleanField("Privado", default=False)
     stock = models.PositiveIntegerField("Stock", default=0, help_text="Unidades disponibles")
