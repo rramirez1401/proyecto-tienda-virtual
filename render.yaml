@@ -7,6 +7,6 @@ services:
       python manage.py migrate --noinput
       python manage.py loaddata flanes
       python manage.py collectstatic --noinput
-      mkdir -p staticfiles/productos
-      cp -r media/productos/* staticfiles/productos/
+      mkdir -p staticfiles/media
+      cp -r media/productos staticfiles/media/
     startCommand: python manage.py migrate --noinput && gunicorn onlyflans.wsgi:application

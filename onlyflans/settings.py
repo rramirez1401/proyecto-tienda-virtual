@@ -127,7 +127,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Media files
-MEDIA_URL = "/static/"
+MEDIA_URL = "/static/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
