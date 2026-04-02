@@ -5,6 +5,5 @@ services:
     buildCommand: |
       pip install -r requirements.txt
       python manage.py migrate --verbosity=2
-      python manage.py loaddata flanes --verbosity=2
       python manage.py collectstatic --noinput
-    startCommand: gunicorn onlyflans.wsgi:application
+    startCommand: python manage.py migrate --noinput && gunicorn onlyflans.wsgi:application
