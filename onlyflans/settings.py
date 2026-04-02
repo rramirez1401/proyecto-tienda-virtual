@@ -16,8 +16,8 @@ dotenv.load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECRET_KEY y DEBUG
-SECRET_KEY = 'django-insecure-6@u*a&7cl227^ds^le90kaq!0d3660c(r3apfa44w1a@x*%kcs'
-DEBUG = True
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-6@u*a&7cl227^ds^le90kaq!0d3660c(r3apfa44w1a@x*%kcs')
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = ["*"]
 

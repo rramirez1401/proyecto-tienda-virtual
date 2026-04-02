@@ -2,9 +2,9 @@ services:
   - type: web
     name: proyecto-tienda-virtual
     env: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py migrate
+      python manage.py loaddata flanes
+      python manage.py collectstatic --noinput
     startCommand: gunicorn onlyflans.wsgi:application
-
-    preDeploy:
-      - python manage.py migrate
-      - python manage.py collectstatic --noinput
