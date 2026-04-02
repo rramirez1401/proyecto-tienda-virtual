@@ -11,7 +11,7 @@ urlpatterns = [
     path("usuarios/", include("users.urls")),
 ]
 
-
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# En producción con Gunicorn (Render free) no se sirve MEDIA por defecto.
+# Esto permite que se resuelva /media/... usando la misma vista de archivos estáticos.
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
